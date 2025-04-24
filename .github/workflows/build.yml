@@ -19,6 +19,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
+        distribution: 'temurin'
         java-version: '17'  # Możesz zmienić na odpowiednią wersję JDK (np. 8, 16, 17)
 
     - name: Build with Gradle
