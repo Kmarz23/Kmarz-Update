@@ -21,7 +21,8 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'  # Możesz zmienić na odpowiednią wersję JDK (np. 8, 16, 17)
-
+    - name: Permision
+    - run: chmod -x gradlew
     - name: Build with Gradle
       run: ./gradlew build  # Jeśli używasz Gradle do budowania projektu
 
