@@ -1,0 +1,31 @@
+name: Build Fabric Mod
+
+on:
+  push:
+    branches:
+      - main  # Możesz użyć innej gałęzi, np. master
+  pull_request:
+    branches:
+      - main  # Możesz użyć innej gałęzi, np. master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Możesz także użyć windows-latest lub macos-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'  # Możesz zmienić na odpowiednią wersję JDK (np. 8, 16, 17)
+
+    - name: Build with Gradle
+      run: ./gradlew build  # Jeśli używasz Gradle do budowania projektu
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: fabric-mod
+        path: build/libs/*  # Wskaż odpowiednią ścieżkę do plików wyjściowych, np. .jar
